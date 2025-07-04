@@ -1,0 +1,7 @@
+// style.scss (main file)
+
+@use './sass/variables' as *;
+@use './sass/mixins' as *;
+@use './sass/base';
+@use './sass/layout'; // Contains all the layout-specific CSS
+// @import 'components'; // If you want to add more specific components later

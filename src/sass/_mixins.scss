@@ -1,0 +1,15 @@
+// _mixins.scss
+
+@use './variables' as *; // <-- ADD THIS LINE!
+
+@mixin mobile {
+    @media (max-width: #{$breakpoint-mobile-max}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$breakpoint-desktop-min}) {
+        @content;
+    }
+}

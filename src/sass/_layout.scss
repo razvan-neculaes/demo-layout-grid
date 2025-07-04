@@ -1,0 +1,277 @@
+// _layout.scss
+
+@use './variables' as *;
+@use './mixins' as *; // <-- CHANGE THIS LINE
+
+.site-header {
+    background-color: #fff;
+    padding: $spacing-sm 0;
+    border-bottom: 1px solid #eee;
+
+    .main-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; // Allow items to wrap on smaller screens
+
+        .logo {
+            font-weight: bold;
+            font-size: $font-large;
+            padding: $spacing-xs 0; // Add some padding to the logo
+        }
+
+        .nav-links {
+            display: none; // Hidden by default on mobile
+            @include desktop {
+                display: flex;
+                flex-grow: 1; // Allows it to take available space
+                justify-content: center; // Center links on desktop
+                li {
+                    margin: 0 $spacing-sm;
+                }
+            }
+        }
+
+        .nav-icons {
+            display: none; // Hidden by default on mobile
+            @include desktop {
+                display: flex;
+                gap: $spacing-sm;
+                .icon-link {
+                    // Placeholder for actual icon styling or SVGs
+                    font-size: $font-base;
+                    padding: $spacing-xs;
+                }
+            }
+        }
+
+        .mobile-menu-toggle {
+            background: none;
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            padding: $spacing-xs $spacing-sm;
+            cursor: pointer;
+            font-size: $font-small;
+            @include desktop {
+                display: none; // Hidden on desktop
+            }
+        }
+    }
+}
+
+.hero-banner {
+    background: url('https://onestep.fr/on/demandware.static/-/Sites-ONESTEP_FR-Library/default/dw0de896c6/pages/onestep/home/images/soldes/D3/OP-d.jpg') no-repeat center center/cover;
+    height: 400px; // Adjust as needed
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative; // For overlay if needed
+
+    .hero-content {
+        background-color: rgba(0,0,0,0.4); // Semi-transparent overlay
+        padding: $spacing-lg;
+        border-radius: 5px;
+
+        h1 {
+            font-size: $font-hero-heading;
+            margin-bottom: $spacing-xs;
+            color: $accent-color; // Match the color from the image
+            @include desktop {
+                font-size: $font-hero-heading-desktop;
+            }
+        }
+        p {
+            font-size: $font-base;
+            margin-bottom: $spacing-md;
+            color: #fff;
+        }
+    }
+}
+
+.product-selection {
+    padding: $spacing-xl 0;
+    text-align: center;
+
+    h2 {
+        text-transform: uppercase;
+        margin-bottom: $spacing-lg;
+        font-size: $font-large;
+        @include desktop {
+            font-size: $spacing-xl;
+        }
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); // 2 columns on mobile
+        gap: $spacing-md;
+        @include desktop {
+            grid-template-columns: repeat(4, 1fr); // 4 columns on desktop
+            gap: $spacing-lg;
+        }
+
+        .product-card {
+            text-align: left;
+            img {
+                width: 100%;
+                height: auto;
+                margin-bottom: $spacing-xs;
+            }
+            h3 {
+                font-size: $font-base;
+                margin-bottom: $spacing-xxs;
+            }
+            .price {
+                font-weight: bold;
+                font-size: $font-base;
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.featured-products {
+    padding: $spacing-sm 0; // Less padding as they are larger images
+
+    .grid-2-cols {
+        display: grid;
+        grid-template-columns: 1fr; // Single column on mobile
+        gap: $spacing-md;
+        @include desktop {
+            grid-template-columns: repeat(2, 1fr); // Two columns on desktop
+            gap: $spacing-lg;
+        }
+    }
+
+    .grid-4-cols {
+        display: grid;
+        grid-template-columns: 1fr; // Single column on mobile
+        gap: $spacing-md;
+
+        @include desktop {
+            grid-template-columns: repeat(2, 1fr); // Two columns on desktop
+            grid-template-rows: repeat(2, auto); // Two rows on desktop
+            gap: $spacing-lg;
+        }
+    }
+
+    .featured-item {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+
+.community-section {
+    background-color: $secondary-color;
+    padding: $spacing-xl 0;
+    text-align: center;
+
+    h2 {
+        text-transform: uppercase;
+        margin-bottom: $spacing-lg;
+        font-size: $font-large;
+        @include desktop {
+            font-size: $spacing-xl;
+        }
+    }
+
+    .community-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); // Responsive columns
+        gap: $spacing-md;
+        justify-items: center; // Center cards in their grid area
+
+        .feature-card {
+            text-align: center;
+            padding: $spacing-md;
+            background-color: #fff;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 50px;
+                height: 50px;
+                margin-bottom: $spacing-xs;
+            }
+            p {
+                font-size: $font-small;
+            }
+        }
+    }
+}
+
+.site-footer {
+    background-color: $primary-color;
+    color: #fff;
+    padding: $spacing-xl 0 $spacing-sm; // More padding at top
+
+    .footer-columns {
+        display: grid;
+        grid-template-columns: 1fr; // Single column on mobile
+        gap: $spacing-lg;
+        margin-bottom: $spacing-lg;
+        text-align: center; // Center text for mobile footer columns
+
+        @include desktop {
+            grid-template-columns: repeat(4, 1fr); // 4 columns on desktop
+            gap: $spacing-xl;
+            text-align: left; // Align text left for desktop footer columns
+        }
+
+        .footer-col {
+            h4 {
+                font-size: $font-base;
+                margin-bottom: $spacing-sm;
+                text-transform: uppercase;
+            }
+            ul {
+                padding: 0;
+                li {
+                    margin-bottom: $spacing-xs;
+                }
+                a {
+                    color: #fff;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .social-icons {
+                display: flex;
+                justify-content: center; // Center icons on mobile
+                gap: $spacing-sm;
+                @include desktop {
+                    justify-content: flex-start; // Align left on desktop
+                }
+                a {
+                    width: 30px;
+                    height: 30px;
+                    background-color: rgba(255,255,255,0.2);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: $font-small;
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: $spacing-sm;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        p {
+            font-size: $font-small;
+            color: rgba(255,255,255,0.7);
+        }
+    }
+}
