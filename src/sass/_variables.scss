@@ -1,0 +1,26 @@
+// _variables.scss
+
+// Colors
+$primary-color: #333;
+$secondary-color: #f8f8f8;
+$accent-color: #e60050; // A guess for the sale button/text color
+
+// Font Sizes
+$font-small: 0.875rem;
+$font-base: 1rem;
+$font-large: 1.25rem;
+$font-hero-heading: 2.5rem;
+$font-hero-heading-desktop: 4rem; // Larger for desktop
+
+// Spacing
+$spacing-xxs: 0.25rem;
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-xxl: 4rem;
+
+// Breakpoints
+$breakpoint-mobile-max: 767px; // Everything up to this is considered mobile
+$breakpoint-desktop-min: 768px; // From this point onwards is desktop
