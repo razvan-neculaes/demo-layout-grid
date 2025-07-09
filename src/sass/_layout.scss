@@ -3,62 +3,6 @@
 @use './variables' as *;
 @use './mixins' as *; // <-- CHANGE THIS LINE
 
-.site-header {
-    background-color: #fff;
-    padding: $spacing-sm 0;
-    border-bottom: 1px solid #eee;
-
-    .main-nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap; // Allow items to wrap on smaller screens
-
-        .logo {
-            font-weight: bold;
-            font-size: $font-large;
-            padding: $spacing-xs 0; // Add some padding to the logo
-        }
-
-        .nav-links {
-            display: none; // Hidden by default on mobile
-            @include desktop {
-                display: flex;
-                flex-grow: 1; // Allows it to take available space
-                justify-content: center; // Center links on desktop
-                li {
-                    margin: 0 $spacing-sm;
-                }
-            }
-        }
-
-        .nav-icons {
-            display: none; // Hidden by default on mobile
-            @include desktop {
-                display: flex;
-                gap: $spacing-sm;
-                .icon-link {
-                    // Placeholder for actual icon styling or SVGs
-                    font-size: $font-base;
-                    padding: $spacing-xs;
-                }
-            }
-        }
-
-        .mobile-menu-toggle {
-            background: none;
-            border: 1px solid $primary-color;
-            color: $primary-color;
-            padding: $spacing-xs $spacing-sm;
-            cursor: pointer;
-            font-size: $font-small;
-            @include desktop {
-                display: none; // Hidden on desktop
-            }
-        }
-    }
-}
-
 .hero-banner {
     background: url('https://onestep.fr/on/demandware.static/-/Sites-ONESTEP_FR-Library/default/dw0de896c6/pages/onestep/home/images/soldes/D3/OP-d.jpg') no-repeat center center/cover;
     height: 400px; // Adjust as needed
@@ -182,9 +126,14 @@
 
     .community-features {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); // Responsive columns
+        grid-template-columns: repeat(2, 1fr);
         gap: $spacing-md;
         justify-items: center; // Center cards in their grid area
+
+        @include desktop {
+            grid-template-columns: repeat(4, 1fr); // Two columns on desktop
+            gap: $spacing-lg;
+        }
 
         .feature-card {
             text-align: center;
@@ -197,8 +146,6 @@
             justify-content: center;
 
             img {
-                width: 50px;
-                height: 50px;
                 margin-bottom: $spacing-xs;
             }
             p {
@@ -215,7 +162,7 @@
 
     .footer-columns {
         display: grid;
-        grid-template-columns: 1fr; // Single column on mobile
+        grid-template-columns: repeat(2, 1fr); // Single column on mobile
         gap: $spacing-lg;
         margin-bottom: $spacing-lg;
         text-align: center; // Center text for mobile footer columns

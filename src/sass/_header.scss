@@ -1,0 +1,91 @@
+@use './variables' as *;
+@use './mixins' as *; // <-- this line!
+
+.site-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+
+    .promo-banner {
+        background-color: $light-peach; // Match the background color
+        padding: $spacing-xxs; // Adjust padding as needed
+        text-align: center;
+        position: relative; // For positioning the close button
+
+        .banner-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-base; // Adjust font size
+
+            &-text {
+                font-weight: bold;
+                text-transform: uppercase;
+                text-decoration: underline; // Match the underline style
+            }
+        }
+
+        .close-banner {
+            background: none;
+            border: none;
+            font-size: $font-base;
+            position: absolute;
+            right: $spacing-sm; // Adjust position
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    }
+
+    .main-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; // Allow items to wrap on smaller screens
+
+        .logo {
+            font-weight: bold;
+            font-size: $font-large;
+            padding: $spacing-xs 0; // Add some padding to the logo
+        }
+
+        .nav-links {
+            display: none; // Hidden by default on mobile
+            @include desktop {
+                display: flex;
+                flex-grow: 1; // Allows it to take available space
+                justify-content: center; // Center links on desktop
+                li {
+                    margin: 0 $spacing-sm;
+                }
+            }
+        }
+
+        .nav-icons {
+            display: none; // Hidden by default on mobile
+            @include desktop {
+                display: flex;
+                gap: $spacing-sm;
+                .icon-link {
+                    // Placeholder for actual icon styling or SVGs
+                    font-size: $font-base;
+                    padding: $spacing-xs;
+                }
+            }
+        }
+
+        .mobile-menu-toggle {
+            background: none;
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            padding: $spacing-xs $spacing-sm;
+            cursor: pointer;
+            font-size: $font-small;
+            @include desktop {
+                display: none; // Hidden on desktop
+            }
+        }
+    }
+}
