@@ -14,24 +14,26 @@
                 </div>
                 <button class="close-banner" aria-label="Close banner">x</button>
             </div>
-            <div class="container">
-                <nav class="main-nav white-bg">
+            <div class="container white-bg">
+                <nav class="row main-nav" aria-label="primary-navigation">
                     <div class="nav-menu">
                         <a href="#" class="fa-solid fa-bars">&#9776;</a>
                         <a href="#" class="logo">one step</a>
                     </div>
-
                     <div class="nav-search desktop-only">
                         <button type="submit" class="material-icons submit-search-input">&#xe8b6;</button>
-                        <input type="text" name="query" placeholder="Recherche">
+                        <input type="text" name="query" class="bottom-solid-border" placeholder="Recherche">
                     </div>
-
                     <div class="nav-icons">
                         <a href="#" class="fa-light fa-map-marker desktop-only">&#xf041;</a>
                         <a href="#" class="fa-light fa-user">&#xf007;</a>
                         <a href="#" class="fa-light fa-heart">&#xf004;</a>
                         <a href="#" class="fa-light fa-bag-shopping">&#xf07a;</a>
                     </div>
+                </nav>
+                <nav class="row main-nav mobile-only" aria-label="secondary-navigation">
+                    <button type="submit" class="material-icons submit-search-input">&#xe8b6;</button>
+                    <input type="text" name="query" placeholder="Recherche">
                 </nav>
             </div>
         </header>
