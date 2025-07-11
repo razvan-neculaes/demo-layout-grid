@@ -1,5 +1,7 @@
+// src/sass/_header.scss
+
 @use './variables' as *;
-@use './mixins' as *; // <-- this line!
+@use './mixins' as *;
 
 .site-header {
     background-color: #fff;
@@ -9,21 +11,21 @@
     z-index: 1000; /* Ensure it stays above other content */
 
     .promo-banner {
-        background-color: $light-peach; // Match the background color
-        padding: $spacing-xxs; // Adjust padding as needed
+        background-color: $light-peach;
+        padding: $spacing-xxs;
         text-align: center;
-        position: relative; // For positioning the close button
+        position: relative;
 
         .banner-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: $font-base; // Adjust font size
+            font-size: $font-base;
 
             &-text {
                 font-weight: bold;
                 text-transform: uppercase;
-                text-decoration: underline; // Match the underline style
+                text-decoration: underline;
             }
         }
 
@@ -32,10 +34,177 @@
             border: none;
             font-size: $font-base;
             position: absolute;
-            right: $spacing-sm; // Adjust position
+            right: $spacing-sm;
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
         }
+    }
+
+    .main-banner {
+        padding: $spacing-sm $spacing-md;
+        background-color: white;
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: $spacing-md 0;
+
+            .nav-menu {
+                display: flex;
+                align-items: center;
+                flex-grow: 1;
+
+                .hamburger-menu {
+                    font-size: $font-md;
+                    color: $color-primary;
+                    text-decoration: none;
+                    margin-right: $spacing-md;
+                }
+
+                .logo {
+                    font-size: $font-md;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: $color-primary;
+                    text-decoration: none;
+                }
+            }
+
+            .nav-search {
+                display: flex;
+                align-items: center;
+
+                .submit-search-input {
+                    background: none;
+                    border: none;
+                    font-size: $font-md;
+                    color: $color-primary;
+                    cursor: pointer;
+                    padding-right: $spacing-xxs;
+                }
+
+                input[type="text"] {
+                    border: none;
+                    border-bottom: 1px solid $color-text-light;
+                    padding: $spacing-xxs 0;
+                    font-size: $font-base;
+                    min-width: 150px;
+
+                    @include desktop {
+                        width: 200px;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-bottom-color: $color-primary;
+                    }
+                }
+
+                &.desktop-only {
+                    display: none; // Hidden by default (mobile first)
+                    @include desktop {
+                        display: flex; // Show on desktop
+                        margin-left: auto; // Pushes search to the right
+                        margin-right: $spacing-md;
+                    }
+                }
+            }
+
+            .nav-icons {
+                display: flex;
+                align-items: center;
+
+                a {
+                    font-size: $font-md;
+                    color: $color-primary;
+                    text-decoration: none;
+                    margin-left: $spacing-md;
+
+                    &:hover {
+                        color: $color-link-hover;
+                    }
+
+                    &.desktop-only {
+                        display: none; // Hidden by default (mobile first)
+                        @include desktop {
+                            display: initial; // Show on desktop
+                        }
+                    }
+                }
+            }
+        }
+
+        .row-two.mobile-only {
+            padding-bottom: $spacing-md;
+            display: flex;
+
+            // Apply solid border to the nav container
+            &.solid-border {
+                border: 1px solid $color-text-light; // Example border color
+                border-radius: 4px; // Optional: add some rounded corners
+            }
+
+            .submit-search-input {
+                background: none;
+                border: none;
+                font-size: $font-md;
+                color: $color-primary;
+                cursor: pointer;
+                padding-right: $spacing-xxs;
+            }
+
+             input[type="text"] {
+                    border: none; // No border by default now!
+                    padding: $spacing-xxs 0;
+                    font-size: $font-base;
+                    min-width: 150px;
+
+                    @include desktop {
+                        width: 200px;
+                    }
+
+                    // Apply bottom border ONLY if the class is present
+                    &.bottom-solid-border {
+                        border-bottom: 1px solid $color-text-light;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        // For inputs with bottom-solid-border, highlight on focus
+                        &.bottom-solid-border {
+                            border-bottom-color: $color-primary;
+                        }
+                    }
+                }
+
+            // Hide the mobile search bar on desktop
+            @include desktop {
+                display: none;
+            }
+        }
+    }
+}
+
+// Global container for consistent width
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+}
+
+// Helper classes now explicitly using desktop/mobile mixins
+.desktop-only {
+    display: none;
+    @include desktop {
+        display: initial; // Or 'flex' or 'block' depending on element
+    }
+}
+
+.mobile-only {
+    display: initial; // Or 'flex' or 'block' depending on element
+    @include desktop {
+        display: none;
     }
 }

@@ -14,26 +14,26 @@
                 </div>
                 <button class="close-banner" aria-label="Close banner">x</button>
             </div>
-            <div class="container white-bg">
-                <nav class="row main-nav" aria-label="primary-navigation">
-                    <div class="nav-menu">
-                        <a href="#" class="fa-solid fa-bars">&#9776;</a>
-                        <a href="#" class="logo">one step</a>
+            <div class="container main-banner white-background">
+                <nav class="row row-one main-nav" aria-label="primary-navigation">
+                    <div class="nav-menu align-left-side">
+                        <a href="#" class="hamburger-menu fa-solid fa-bars" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu">&#9776;</a>
+                        <a href="#" class="logo" aria-current="page" aria-label="Homepage" title="Homepage">one step</a>
                     </div>
-                    <div class="nav-search desktop-only">
-                        <button type="submit" class="material-icons submit-search-input">&#xe8b6;</button>
-                        <input type="text" name="query" class="bottom-solid-border" placeholder="Recherche">
+                    <div class="nav-search align-right-side search-input desktop-only">
+                        <button type="submit" class="fa-light material-icons magnifying-glass-icon submit-search-input" aria-label="Submit search">&#xe8b6;</button>
+                        <input type="text" name="query" class="bottom-solid-border" aria-label="Search" autocomplete="off" placeholder="Recherche">
                     </div>
-                    <div class="nav-icons">
-                        <a href="#" class="fa-light fa-map-marker desktop-only">&#xf041;</a>
-                        <a href="#" class="fa-light fa-user">&#xf007;</a>
-                        <a href="#" class="fa-light fa-heart">&#xf004;</a>
-                        <a href="#" class="fa-light fa-bag-shopping">&#xf07a;</a>
+                    <div class="nav-icons align-right-side">
+                        <a href="#" class="fa-light fa-map-marker google-maps-pin-icon desktop-only" aria-label="Store locator">&#xf041;</a>
+                        <a href="#" class="fa-light fa-user my-account-icon" aria-expanded="false">&#xf007;</a>
+                        <a href="#" class="fa-light fa-heart heart-icon" aria-label="Favorite">&#xf004;</a>
+                        <a href="#" class="fa-light fa-bag-shopping shopping-bag-icon" aria-label="Shopping bag" aria-expanded="false">&#xf07a;</a>
                     </div>
                 </nav>
-                <nav class="row main-nav mobile-only" aria-label="secondary-navigation">
-                    <button type="submit" class="material-icons submit-search-input">&#xe8b6;</button>
-                    <input type="text" name="query" placeholder="Recherche">
+                <nav class="row row-two solid-border search-input main-nav mobile-only" aria-label="secondary-navigation">
+                    <button type="submit" class="fa-light material-icons submit-search-input" aria-label="Submit search">&#xe8b6;</button>
+                    <input type="text" name="query" aria-label="Search" autocomplete="off" placeholder="Recherche">
                 </nav>
             </div>
         </header>
