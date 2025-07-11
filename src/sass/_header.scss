@@ -8,7 +8,7 @@
     border-bottom: 1px solid #eee;
     position: sticky;
     top: 0;
-    z-index: 1000; /* Ensure it stays above other content */
+    z-index: 1000;
 
     .promo-banner {
         background-color: $light-peach;
@@ -48,19 +48,22 @@
         .main-nav {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-between; // Distribute items horizontally
             padding: $spacing-md 0;
 
             .nav-menu {
                 display: flex;
                 align-items: center;
-                flex-grow: 1;
+                // No flex-grow here for nav-menu to let other items take space
 
                 .hamburger-menu {
                     font-size: $font-md;
                     color: $color-primary;
                     text-decoration: none;
                     margin-right: $spacing-md;
+
+                    // Hamburger is visible by default (mobile-first)
+                    display: initial;
                 }
 
                 .logo {
@@ -73,8 +76,24 @@
             }
 
             .nav-search {
-                display: flex;
+                display: flex; // Always a flex container
                 align-items: center;
+                flex-grow: 1; // Allow search to take remaining space
+                margin: 0 $spacing-md; // Space on both sides of the search bar
+
+                // Mobile-specific styling for the search container itself
+                @include mobile {
+                    border: 1px solid $color-text-light; // Solid border for mobile search
+                    border-radius: 4px;
+                    padding: $spacing-xxs $spacing-sm; // Internal padding for the border
+                }
+
+                // On desktop, push the search bar to the right
+                @include desktop {
+                    margin-left: auto; // Pushes it right
+                    margin-right: $spacing-md; // Space before nav icons
+                    flex-grow: 0; // Prevent it from growing too much on desktop
+                }
 
                 .submit-search-input {
                     background: none;
@@ -82,34 +101,42 @@
                     font-size: $font-md;
                     color: $color-primary;
                     cursor: pointer;
-                    padding-right: $spacing-xxs;
+                    // On mobile, the button is part of the bordered area, no extra padding needed here
+                    @include mobile {
+                        padding-right: $spacing-xxs; // Space between icon and input for mobile
+                    }
                 }
 
                 input[type="text"] {
-                    border: none;
-                    border-bottom: 1px solid $color-text-light;
-                    padding: $spacing-xxs 0;
+                    border: none; // No border by default
+                    padding: $spacing-xxs 0; // Vertical padding
                     font-size: $font-base;
-                    min-width: 150px;
+                    width: 100%; // Takes full width of its container
+                    flex-grow: 1; // Allows input to grow within the search container
 
-                    @include desktop {
-                        width: 200px;
+                    // Only apply bottom border if the class is present (for desktop use)
+                    &.bottom-solid-border {
+                        @include desktop { // Only apply this border on desktop
+                           border-bottom: 1px solid $color-text-light;
+                        }
                     }
 
                     &:focus {
                         outline: none;
-                        border-bottom-color: $color-primary;
+                        &.bottom-solid-border {
+                            @include desktop { // Only highlight on desktop when class is present
+                                border-bottom-color: $color-primary;
+                            }
+                        }
                     }
                 }
 
-                &.desktop-only {
-                    display: none; // Hidden by default (mobile first)
-                    @include desktop {
-                        display: flex; // Show on desktop
-                        margin-left: auto; // Pushes search to the right
-                        margin-right: $spacing-md;
-                    }
-                }
+                // Hide the search bar entirely on desktop if it has desktop-only class
+                // (though with the new structure, it's always present, just styled differently)
+                // If you *really* want to hide it on mobile, you'd add:
+                // display: none;
+                // @include desktop { display: flex; }
+                // But the current HTML implies it's visible on both.
             }
 
             .nav-icons {
@@ -120,14 +147,16 @@
                     font-size: $font-md;
                     color: $color-primary;
                     text-decoration: none;
-                    margin-left: $spacing-md;
+
+                    // Default spacing for mobile icons
+                    margin-left: $spacing-sm;
 
                     &:hover {
                         color: $color-link-hover;
                     }
 
                     &.desktop-only {
-                        display: none; // Hidden by default (mobile first)
+                        display: none; // Hidden on mobile
                         @include desktop {
                             display: initial; // Show on desktop
                         }
@@ -135,57 +164,10 @@
                 }
             }
         }
-
-        .row-two.mobile-only {
-            padding-bottom: $spacing-md;
-            display: flex;
-
-            // Apply solid border to the nav container
-            &.solid-border {
-                border: 1px solid $color-text-light; // Example border color
-                border-radius: 4px; // Optional: add some rounded corners
-            }
-
-            .submit-search-input {
-                background: none;
-                border: none;
-                font-size: $font-md;
-                color: $color-primary;
-                cursor: pointer;
-                padding-right: $spacing-xxs;
-            }
-
-             input[type="text"] {
-                    border: none; // No border by default now!
-                    padding: $spacing-xxs 0;
-                    font-size: $font-base;
-                    min-width: 150px;
-
-                    @include desktop {
-                        width: 200px;
-                    }
-
-                    // Apply bottom border ONLY if the class is present
-                    &.bottom-solid-border {
-                        border-bottom: 1px solid $color-text-light;
-                    }
-
-                    &:focus {
-                        outline: none;
-                        // For inputs with bottom-solid-border, highlight on focus
-                        &.bottom-solid-border {
-                            border-bottom-color: $color-primary;
-                        }
-                    }
-                }
-
-            // Hide the mobile search bar on desktop
-            @include desktop {
-                display: none;
-            }
-        }
+        // Removed .row-two.mobile-only as it's no longer in the HTML
     }
 }
+
 
 // Global container for consistent width
 .container {
@@ -194,7 +176,9 @@
     padding: 0 $spacing-md;
 }
 
-// Helper classes now explicitly using desktop/mobile mixins
+// Helper classes (adjust as needed based on now consolidated structure)
+// .desktop-only and .mobile-only classes are now primarily for individual elements,
+// not for entire rows or sections.
 .desktop-only {
     display: none;
     @include desktop {
@@ -202,8 +186,11 @@
     }
 }
 
+// The 'mobile-only' class on the HTML element itself like row-two.mobile-only is now gone.
+// If you apply 'mobile-only' to other elements, this rule will still work.
+// For instance, if you had <span class="mobile-only">Some Text</span>
 .mobile-only {
-    display: initial; // Or 'flex' or 'block' depending on element
+    display: initial;
     @include desktop {
         display: none;
     }
