@@ -11,7 +11,7 @@
 }
 
 body {
-    font-family: sans-serif; // Using a generic sans-serif
+    font-family: 'Ubuntu', sans-serif;  // Using a generic sans-serif
     line-height: 1.6;
     color: $primary-color;
     background-color: #fff;
@@ -59,4 +59,12 @@ ul {
 
 h1, h2, h3 {
     margin-bottom: $spacing-sm;
+}
+
+.fa {
+    font-size: $font-x-large; /* Adjust the size as needed */
+}
+
+.fa-search {
+    font-size: $font-md; /* Adjust the size as needed */
 }

@@ -45,11 +45,14 @@
         padding: $spacing-sm $spacing-md;
         background-color: white;
 
+        @include desktop {
+            padding: $spacing-lg $spacing-md;
+        }
+
         .main-nav {
             display: flex;
             align-items: center;
             justify-content: space-between; // Distribute items horizontally
-            padding: $spacing-md 0;
 
             .nav-menu {
                 display: flex;
@@ -57,7 +60,6 @@
                 // No flex-grow here for nav-menu to let other items take space
 
                 .hamburger-menu {
-                    font-size: $font-md;
                     color: $color-primary;
                     text-decoration: none;
                     margin-right: $spacing-md;
@@ -79,13 +81,11 @@
                 display: flex; // Always a flex container
                 align-items: center;
                 flex-grow: 1; // Allow search to take remaining space
-                margin: 0 $spacing-md; // Space on both sides of the search bar
 
                 // Mobile-specific styling for the search container itself
                 @include mobile {
                     border: 1px solid $color-text-light; // Solid border for mobile search
-                    border-radius: 4px;
-                    padding: $spacing-xxs $spacing-sm; // Internal padding for the border
+                    padding: 0 $spacing-sm; // Internal padding for the border
                 }
 
                 // On desktop, push the search bar to the right
@@ -98,12 +98,14 @@
                 .submit-search-input {
                     background: none;
                     border: none;
-                    font-size: $font-md;
                     color: $color-primary;
                     cursor: pointer;
                     // On mobile, the button is part of the bordered area, no extra padding needed here
                     @include mobile {
                         padding-right: $spacing-xxs; // Space between icon and input for mobile
+                    }
+                    @include desktop {
+                        padding-right: $spacing-sm; // Space between icon and input for desktop
                     }
                 }
 
@@ -130,13 +132,6 @@
                         }
                     }
                 }
-
-                // Hide the search bar entirely on desktop if it has desktop-only class
-                // (though with the new structure, it's always present, just styled differently)
-                // If you *really* want to hide it on mobile, you'd add:
-                // display: none;
-                // @include desktop { display: flex; }
-                // But the current HTML implies it's visible on both.
             }
 
             .nav-icons {
@@ -144,7 +139,6 @@
                 align-items: center;
 
                 a {
-                    font-size: $font-md;
                     color: $color-primary;
                     text-decoration: none;
 
@@ -174,6 +168,13 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 $spacing-md;
+}
+
+// Global container for fluid width
+.container-fluid {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 $spacing-sm;
 }
 
 // Helper classes (adjust as needed based on now consolidated structure)

@@ -31,10 +31,28 @@ module.exports = {
                     'sass-loader', // Compiles Sass to CSS
                 ],
             },
+            // Rule for regular CSS files
+            {
+                test: /\.css$/i,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                ],
+            },
             // Rule for images (optional, but good practice if you have any in CSS)
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource', // Webpack 5 way to handle assets
+            },
+            // Rule for handling font files
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+                generator: {
+                    // This makes sure the output path for fonts is correct
+                    // For example, they'll go into dist/fonts/
+                    filename: 'fonts/[name][ext]'
+                }
             },
             // You can add rules for JavaScript here later if needed
             // {
