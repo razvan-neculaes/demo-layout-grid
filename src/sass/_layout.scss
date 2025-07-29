@@ -47,6 +47,12 @@
         }
     }
 
+    .font-title {
+        font-family: $font-family-heading;
+        font-size: 28px;
+        font-weight: 500;
+    }
+
     .product-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr); // 2 columns on mobile
@@ -58,19 +64,62 @@
 
         .product-card {
             text-align: left;
+            position: relative;
+
             img {
                 width: 100%;
                 height: auto;
                 margin-bottom: $spacing-xs;
             }
+
             h3 {
                 font-size: $font-base;
                 margin-bottom: $spacing-xxs;
             }
+
+            .product-title {
+                font-family: $font-family-base;
+                font-size: 0.75rem;
+                font-weight: 400;
+                color: $taupe-gray
+            }
+
             .price {
-                font-weight: bold;
-                font-size: $font-base;
-                color: $primary-color;
+                font-weight: 700;
+                font-size: $font-x-small;
+                color: $charcoal-gray;
+                font-family: $font-family-base;
+            }
+
+             // New styles for labels/icons
+            .new-label {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                background-color: $accent-color;
+                color: #fff;
+                padding: 5px;
+                font-size: $font-small;
+                border-radius: 3px;
+            }
+
+            .icon {
+                position: absolute;
+                bottom: 20px;
+                right: 10px;
+                display: flex;
+                gap: $spacing-xs;
+
+                a {
+                    color: $primary-color;
+                    &:hover {
+                        color: $accent-color;
+                    }
+                }
+
+                .fa-heart {
+                    font-size: $font-large /* Adjust the size as needed */
+                }
             }
         }
     }
@@ -151,74 +200,6 @@
             p {
                 font-size: $font-small;
             }
-        }
-    }
-}
-
-.site-footer {
-    background-color: $primary-color;
-    color: #fff;
-    padding: $spacing-xl 0 $spacing-sm; // More padding at top
-
-    .footer-columns {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); // Single column on mobile
-        gap: $spacing-lg;
-        margin-bottom: $spacing-lg;
-        text-align: center; // Center text for mobile footer columns
-
-        @include desktop {
-            grid-template-columns: repeat(4, 1fr); // 4 columns on desktop
-            gap: $spacing-xl;
-            text-align: left; // Align text left for desktop footer columns
-        }
-
-        .footer-col {
-            h4 {
-                font-size: $font-base;
-                margin-bottom: $spacing-sm;
-                text-transform: uppercase;
-            }
-            ul {
-                padding: 0;
-                li {
-                    margin-bottom: $spacing-xs;
-                }
-                a {
-                    color: #fff;
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-            .social-icons {
-                display: flex;
-                justify-content: center; // Center icons on mobile
-                gap: $spacing-sm;
-                @include desktop {
-                    justify-content: flex-start; // Align left on desktop
-                }
-                a {
-                    width: 30px;
-                    height: 30px;
-                    background-color: rgba(255,255,255,0.2);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: $font-small;
-                }
-            }
-        }
-    }
-
-    .footer-bottom {
-        text-align: center;
-        padding-top: $spacing-sm;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        p {
-            font-size: $font-small;
-            color: rgba(255,255,255,0.7);
         }
     }
 }

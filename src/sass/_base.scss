@@ -11,7 +11,7 @@
 }
 
 body {
-    font-family: 'Ubuntu', sans-serif;  // Using a generic sans-serif
+    font-family: $font-family-base;  // Using a generic sans-serif
     line-height: 1.6;
     color: $primary-color;
     background-color: #fff;

@@ -7,12 +7,15 @@ $accent-color: #e60050; // A guess for the sale button/text color
 $light-peach: #f5f0eb;
 $dark-gray: #555;
 $light-gray: #ddd;
+$charcoal-gray: #282828;
+$taupe-gray: #857b7a;
 $sale-red: #e60050;
 $color-text-light: #555; // Example for light text color
 $color-primary: #333; // Example for primary text color
 $color-link-hover: #007bff; // Example for link hover color
 
 // Font Sizes
+$font-x-small: 0.75rem;
 $font-small: 0.875rem;
 $font-base: 1rem;
 $font-md: 1.125rem; // Example for a slightly larger font
@@ -20,6 +23,10 @@ $font-large: 1.25rem;
 $font-x-large: 1.5rem;
 $font-hero-heading: 2.5rem;
 $font-hero-heading-desktop: 4rem; // Larger for desktop
+
+// Font Family
+$font-family-base: 'Ubuntu', sans-serif;
+$font-family-heading: 'Bebas Neue', sans-serif;
 
 // Spacing
 $spacing-xxs: 0.25rem;

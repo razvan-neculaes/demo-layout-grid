@@ -1,0 +1,71 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.site-footer {
+    background-color: $primary-color;
+    color: #fff;
+    padding: $spacing-xl 0 $spacing-sm; // More padding at top
+
+    .footer-columns {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); // Single column on mobile
+        gap: $spacing-lg;
+        margin-bottom: $spacing-lg;
+        text-align: center; // Center text for mobile footer columns
+
+        @include desktop {
+            grid-template-columns: repeat(4, 1fr); // 4 columns on desktop
+            gap: $spacing-xl;
+            text-align: left; // Align text left for desktop footer columns
+        }
+
+        .footer-col {
+
+            h4 {
+                font-size: $font-base;
+                margin-bottom: $spacing-sm;
+                text-transform: uppercase;
+            }
+            ul {
+                padding: 0;
+                li {
+                    margin-bottom: $spacing-xs;
+                }
+                a {
+                    color: #fff;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .social-icons {
+                display: flex;
+                justify-content: center; // Center icons on mobile
+                gap: $spacing-sm;
+                @include desktop {
+                    justify-content: flex-start; // Align left on desktop
+                }
+                a {
+                    width: 30px;
+                    height: 30px;
+                    background-color: rgba(255,255,255,0.2);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: $font-small;
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: $spacing-sm;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        p {
+            font-size: $font-small;
+            color: rgba(255,255,255,0.7);
+        }
+    }
+}
