@@ -1,0 +1,136 @@
+// _newsletter.scss
+
+@use './variables' as *;
+@use './mixins' as *;
+@use 'sass:color';
+
+.newsletter-section {
+    padding: $spacing-lg 0; // Padding top/bottom, full width for horizontal padding via container
+    text-align: center; // Center content for mobile by default
+
+    .newsletter-content {
+        display: flex;
+        flex-direction: column; // Stack vertically by default (mobile)
+        align-items: center; // Center items horizontally in column layout
+        gap: $spacing-md; // Space between children for mobile. Use gap for cleaner spacing.
+
+        // Add some border/padding around the entire content block if it's visually separated
+        border-bottom: 1px solid #eee; // Example border
+        padding: $spacing-lg;
+        background-color: white; // Example white background for the content block
+
+        .newsletter-icon {
+            width: 70px; // Slightly larger icon based on image
+            height: auto; // Maintain aspect ratio
+            margin-bottom: $spacing-md; // Spacing below icon
+        }
+
+        .newsletter-text {
+            margin-bottom: $spacing-md; // Space below text block on mobile
+            max-width: 600px; // Constrain text width for readability
+            h2 {
+                font-size: $font-large * 1.2; // Slightly larger heading
+                margin-bottom: $spacing-xs;
+                color: $primary-color; // Make heading color consistent
+            }
+            p {
+                font-size: $font-base;
+                color: $text-color;
+                line-height: 1.5; // Improve readability
+            }
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column; // Stack vertically for mobile
+            align-items: center; // Center form elements
+            margin-bottom: $spacing-md;
+            width: 100%; // Make form take full width of its parent for mobile
+            max-width: 400px; // Max width for the form itself on mobile
+
+            input[type="email"] {
+                padding: $spacing-xs $spacing-md; // More horizontal padding
+                font-size: $font-base;
+                border: 1px solid $border-color;
+                border-radius: 5px; // Slightly more rounded
+                margin-bottom: $spacing-xs;
+                width: 100%; // Take full width within its max-width constraint
+                box-sizing: border-box; // Include padding/border in width calculation
+                height: 40px; // Consistent height for input
+            }
+
+            button {
+                padding: $spacing-xs $spacing-md;
+                background-color: $primary-color;
+                color: #fff;
+                border: none;
+                border-radius: 5px; // Slightly more rounded
+                cursor: pointer;
+                font-size: $font-base;
+                width: 100%; // Take full width within its max-width constraint
+                box-sizing: border-box;
+                text-transform: uppercase; // Button text uppercase
+                font-weight: bold; // Button text bold
+                height: 40px; // Consistent height for button
+
+                &:hover {
+                    background-color: color.adjust($primary-color, $lightness: -10%); // Recommended replacement
+                }
+            }
+        }
+
+        .newsletter-disclaimer {
+            font-size: $font-small;
+            color: $text-color;
+            margin-top: $spacing-xs; // Ensure some space from the form
+            max-width: 500px; // Constrain width for readability
+            line-height: 1.4;
+        }
+    }
+
+    @include desktop {
+        .newsletter-content {
+            flex-direction: row; // Arrange horizontally for desktop
+            justify-content: space-around; // Distribute space between items
+            align-items: center; // Vertically align items in the row
+            text-align: left; // Align text to the left for desktop
+            padding: $spacing-lg * 1.5 $spacing-lg; // More padding for desktop content block
+            gap: $spacing-lg; // Increase gap between sections on desktop
+
+            .newsletter-icon {
+                // No specific margin-right needed if using gap
+                margin-bottom: 0; // Remove mobile-specific margin
+            }
+
+            .newsletter-text {
+                flex-grow: 1; // Allows text to take available space
+                margin-bottom: 0; // Remove mobile-specific margin
+                h2, p {
+                    text-align: left; // Ensure text within community-text is left aligned
+                }
+            }
+
+            .newsletter-form {
+                flex-direction: row; // Align input and button horizontally
+                flex-shrink: 0; // Prevent form from shrinking too much
+                margin-bottom: 0; // Remove mobile-specific margin
+                width: auto; // Reset width
+                max-width: none; // Reset max-width
+
+                input[type="email"] {
+                    width: 200px; // Specific width for desktop input
+                    margin-right: $spacing-xs; // Space between input and button
+                    margin-bottom: 0; // Remove mobile-specific margin
+                }
+
+                button {
+                    width: auto; // Allow button to size content
+                }
+            }
+
+            .newsletter-disclaimer {
+                margin-top: 0;
+            }
+        }
+    }
+}

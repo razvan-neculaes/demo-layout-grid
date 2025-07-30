@@ -2,6 +2,7 @@
 
 @use './variables' as *;
 @use './mixins' as *; // <-- CHANGE THIS LINE
+@use 'sass:color'; // <-- ADD THIS LINE to use built-in color functions
 
 .hero-banner {
     background: url('https://onestep.fr/on/demandware.static/-/Sites-ONESTEP_FR-Library/default/dw0de896c6/pages/onestep/home/images/soldes/D3/OP-d.jpg') no-repeat center center/cover;
@@ -94,13 +95,14 @@
              // New styles for labels/icons
             .new-label {
                 position: absolute;
-                top: 10px;
-                left: 10px;
-                background-color: $accent-color;
-                color: #fff;
-                padding: 5px;
-                font-size: $font-small;
-                border-radius: 3px;
+                top: 5px;
+                left: 5px;
+                background-color: $secondary-color;
+                color: $primary-color;
+                padding: 2px 5px;
+                font-size: $font-x-small;
+                font-weight: 500;
+                letter-spacing: 1.25px;
             }
 
             .icon {
@@ -154,52 +156,6 @@
         img {
             width: 100%;
             height: auto;
-        }
-    }
-}
-
-
-.community-section {
-    background-color: $secondary-color;
-    padding: $spacing-xl 0;
-    text-align: center;
-
-    h2 {
-        text-transform: uppercase;
-        margin-bottom: $spacing-lg;
-        font-size: $font-large;
-        @include desktop {
-            font-size: $spacing-xl;
-        }
-    }
-
-    .community-features {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: $spacing-md;
-        justify-items: center; // Center cards in their grid area
-
-        @include desktop {
-            grid-template-columns: repeat(4, 1fr); // Two columns on desktop
-            gap: $spacing-lg;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: $spacing-md;
-            background-color: #fff;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            img {
-                margin-bottom: $spacing-xs;
-            }
-            p {
-                font-size: $font-small;
-            }
         }
     }
 }

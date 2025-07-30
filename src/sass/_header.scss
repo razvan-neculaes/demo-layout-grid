@@ -162,21 +162,6 @@
     }
 }
 
-
-// Global container for consistent width
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 $spacing-md;
-}
-
-// Global container for fluid width
-.container-fluid {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 $spacing-sm;
-}
-
 // Helper classes (adjust as needed based on now consolidated structure)
 // .desktop-only and .mobile-only classes are now primarily for individual elements,
 // not for entire rows or sections.

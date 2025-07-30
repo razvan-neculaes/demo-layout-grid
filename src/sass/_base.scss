@@ -32,13 +32,18 @@ ul {
     list-style: none;
 }
 
+// Global container for consistent width
 .container {
-    max-width: 1200px; // A common max-width for desktop layouts
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 $spacing-sm; // Padding for smaller screens
-    @include desktop {
-        padding: 0 $spacing-lg; // Larger padding on desktop
-    }
+    padding: 0 $spacing-md;
+}
+
+// Global container for fluid width
+.container-fluid {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 $spacing-sm;
 }
 
 .btn {
