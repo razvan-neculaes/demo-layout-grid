@@ -28,7 +28,7 @@
                 // Adjust logo size as per image, assuming the image is small icon type
                 // The provided image shows a hand-drawn looking icon, not a 'k' letter.
                 // You might want to update the image source to match the visual.
-                width: 70px; // A suitable size for the icon
+                width: 55px; // A suitable size for the icon
                 height: auto;
                 margin-bottom: $spacing-sm; // Space between logo and text
             }
@@ -83,30 +83,25 @@
             margin-bottom: $spacing-sm; // Space between form and disclaimer
 
             input[type="email"] {
-                padding: 10px 15px; // Adjust padding to match image
+                padding: 12px 17px; // Adjust padding to match image
                 font-size: $font-base;
-                border: 1px solid #ccc; // Lighter border color
-                border-radius: 0; // No border-radius based on image
+                border: 1px solid $light-beige; // Lighter border color
                 margin-bottom: 10px; // Space between input and button for mobile
                 width: 100%;
-                box-sizing: border-box;
-                height: 40px; // Fixed height for input
                 color: #555; // Input text color
             }
 
             button {
                 padding: 10px 15px; // Adjust padding
-                background-color: #e5d7c8; // Button background color from image
-                color: #2e2c2b; // Button text color from image
-                border: none;
-                border-radius: 0; // No border-radius based on image
+                border: 1px solid $light-beige;
                 cursor: pointer;
-                font-size: $font-base;
+                font-size: $font-md;
                 width: 100%;
-                box-sizing: border-box;
                 text-transform: uppercase;
-                font-weight: bold;
-                height: 40px; // Fixed height for button
+                font-family: $font-family-heading;
+                appearance: none;
+                box-shadow: none;
+                outline: none;
 
                 &:hover {
                     background-color: color.adjust(#e5d7c8, $lightness: -5%); // Slightly darker on hover
@@ -131,9 +126,10 @@
             justify-content: space-between;
             align-items: flex-start;
             text-align: left;
-            padding: 80px 0;
+            padding: 40px 0;
             border-bottom: 1px solid #eee;
-            gap: 120px;
+            width: 90%;
+            margin: 0 auto;
 
             .newsletter-banner {
                 flex-direction: row;
@@ -171,18 +167,18 @@
             .newsletter-form {
                 flex-direction: row;
                 align-items: center;
-                margin-bottom: $spacing-xs;
+                margin-bottom: $spacing-sm;
                 width: auto;
                 max-width: none;
 
                 input[type="email"] {
-                    margin-right: 10px;
-                    margin-bottom: 0;
+                    margin: 0;
                     flex-basis: 100%;
                 }
 
                 button {
                     width: 150px;
+                    border-left-width: 0;
                 }
             }
 
