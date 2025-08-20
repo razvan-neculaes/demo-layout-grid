@@ -15,12 +15,11 @@
         gap: $spacing-md; // Space between main sections
         // Remove border-bottom and background-color if they are not visible in the images
         // For the desktop version, the content itself is not bordered or colored separately
-        padding: $spacing-lg; // Padding inside the newsletter content area
         // background-color: white; // Only if you want a white background for this inner div
 
         .newsletter-banner {
             display: flex;
-            flex-direction: column; // Stack logo and text for mobile
+            flex-direction: row; // Stack logo and text for mobile
             align-items: center; // Center items horizontally
             width: 100%; // Take full width
 
@@ -28,9 +27,11 @@
                 // Adjust logo size as per image, assuming the image is small icon type
                 // The provided image shows a hand-drawn looking icon, not a 'k' letter.
                 // You might want to update the image source to match the visual.
-                width: 55px; // A suitable size for the icon
+                flex: 0 0 80px;
                 height: auto;
+                flex-shrink: 0;
                 margin-bottom: $spacing-sm; // Space between logo and text
+                margin-right: $spacing-sm;
             }
 
             .newsletter-text {
@@ -38,14 +39,14 @@
                 flex-direction: column;
                 align-items: center; // Center text for mobile
                 margin-bottom: $spacing-md; // Space between banner and form
-                max-width: 600px; // Max width for text block
+
 
                 h2 {
                     font-family: $font-family-heading; // Use a font similar to the image
                     font-size: 24px; // Adjust font size as per image
                     margin-bottom: $spacing-xs;
                     color: #2e2c2b; // Darker text color based on image
-                    text-align: center; // Center heading for mobile
+                    text-align: left; // Center heading for mobile
                     text-transform: uppercase; // Heading is uppercase in image
                     font-weight: bold; // Heading is bold
                     line-height: 1.2;
@@ -76,35 +77,36 @@
 
         .newsletter-form {
             width: 100%;
-            max-width: 300px; // Adjust max-width for the form on mobile
             display: flex;
-            flex-direction: column; // Stack input and button for mobile
+            flex-direction: row; // Stack input and button for mobile
             align-items: center; // Center items
             margin-bottom: $spacing-sm; // Space between form and disclaimer
 
             input[type="email"] {
-                padding: 12px 17px; // Adjust padding to match image
+                padding: 10px 15px; // Adjust padding to match image
+                height: 50px;
                 font-size: $font-base;
                 border: 1px solid $light-beige; // Lighter border color
-                margin-bottom: 10px; // Space between input and button for mobile
                 width: 100%;
                 color: #555; // Input text color
             }
 
             button {
                 padding: 10px 15px; // Adjust padding
+                height: 50px;
                 border: 1px solid $light-beige;
                 cursor: pointer;
-                font-size: $font-md;
-                width: 100%;
+                font-size: $font-large;
+                width: 150px;
                 text-transform: uppercase;
                 font-family: $font-family-heading;
                 appearance: none;
                 box-shadow: none;
                 outline: none;
+                background-color: $light-beige;
 
                 &:hover {
-                    background-color: color.adjust(#e5d7c8, $lightness: -5%); // Slightly darker on hover
+                    background-color: color.adjust($light-beige, $lightness: -5%); // Slightly darker on hover
                 }
             }
         }
@@ -114,7 +116,6 @@
             font-size: 14px; // Smaller font size for disclaimer
             color: #555; // Text color
             margin-top: $spacing-xs;
-            max-width: 300px; // Match width of form for better alignment
             line-height: 1.4;
             text-align: left; // Center disclaimer for mobile
         }
@@ -128,15 +129,16 @@
             text-align: left;
             padding: 40px 0;
             border-bottom: 1px solid #eee;
-            width: 90%;
             margin: 0 auto;
 
             .newsletter-banner {
                 flex-direction: row;
                 align-items: flex-start;
                 width: auto;
+                margin-left: 50px;
 
                 .newsletter-logo {
+                    flex: 0 0 60px;
                     margin-bottom: 0;
                     flex-shrink: 0;
                 }
@@ -144,6 +146,7 @@
                 .newsletter-text {
                     align-items: flex-start;
                     margin-bottom: 0;
+                    max-width: 600px; // Max width for text block
 
                     h2 {
                         text-align: left;
@@ -161,7 +164,8 @@
             .newsletter-subscription {
                 display: block;
                 flex-grow: 1;
-                max-width: 40%;
+                max-width: 50%;
+                margin-right: 50px;
             }
 
             .newsletter-form {
@@ -177,7 +181,6 @@
                 }
 
                 button {
-                    width: 150px;
                     border-left-width: 0;
                 }
             }

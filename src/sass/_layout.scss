@@ -161,8 +161,8 @@
 }
 
 .community-section {
-    background-color: $secondary-color;
-    padding: $spacing-xl 0;
+    background-color: $light-beige;
+    padding: $spacing-md 0;
     text-align: center;
 
     h2 {
@@ -187,8 +187,8 @@
 
         .feature-card {
             text-align: center;
-            padding: $spacing-md;
-            background-color: #fff;
+            padding: $spacing-xxs;
+            background-color: $light-beige;
             border-radius: 5px;
             display: flex;
             flex-direction: column;
@@ -199,7 +199,10 @@
                 margin-bottom: $spacing-xs;
             }
             p {
-                font-size: $font-small;
+                font-size: $font-base;
+                font-family: $font-family-heading;
+                font-weight: 400;
+                line-height: 1.5;
             }
         }
     }

@@ -2,70 +2,91 @@
 @use './mixins' as *;
 
 .site-footer {
-    background-color: $primary-color;
-    color: #fff;
-    padding: $spacing-xl 0 $spacing-sm; // More padding at top
+    background-color: white;
+    color: $primary-color; // Ensure $primary-color is black or set to #000000
+    padding: $spacing-sm 0;
+    border-top: 1px solid #eee; // Thin horizontal line at the top
 
     .footer-columns {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); // Single column on mobile
-        gap: $spacing-lg;
-        margin-bottom: $spacing-lg;
-        text-align: center; // Center text for mobile footer columns
+        grid-template-columns: 1fr; // Single column for mobile
+        gap: $spacing-lg; // Spacing between stacked columns on mobile
+        text-align: center; // Centered text on mobile
 
-        @include desktop {
-            grid-template-columns: repeat(4, 1fr); // 4 columns on desktop
-            gap: $spacing-xl;
-            text-align: left; // Align text left for desktop footer columns
+        @include desktop { // Assuming a desktop media query is defined
+            grid-template-columns: repeat(4, 1fr); // Four columns on desktop
+            gap: $spacing-xl; // Larger spacing between columns on desktop
+            text-align: left; // Left-aligned text on desktop
         }
 
         .footer-col {
-
             h4 {
-                font-size: $font-base;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: $font-base; // Adjust size as needed
+                font-weight: bold;
                 margin-bottom: $spacing-sm;
-                text-transform: uppercase;
+                text-transform: uppercase; // Uppercase headers
             }
+
+            .toggle-button {
+                background: none;
+                border: none;
+                font-size: $font-base;
+                cursor: pointer;
+                color: $primary-color;
+            }
+
+            .collapsible-content {
+                display: none; // Hide by default
+            }
+
+            &.active .collapsible-content {
+                display: block; // Show when active
+            }
+
             ul {
                 padding: 0;
+                list-style: none; // Remove bullets from lists
                 li {
-                    margin-bottom: $spacing-xs;
+                    margin-bottom: $spacing-xs; // Spacing between links
                 }
                 a {
-                    color: #fff;
+                    color: $primary-color; // Match text color
+                    text-decoration: none; // No underline by default
+                    font-size: $font-sm; // Smaller text for links, adjust as needed
                     &:hover {
-                        text-decoration: underline;
+                        text-decoration: underline; // Underline on hover
                     }
                 }
             }
-            .social-icons {
-                display: flex;
-                justify-content: center; // Center icons on mobile
-                gap: $spacing-sm;
-                @include desktop {
-                    justify-content: flex-start; // Align left on desktop
+
+            @include desktop { // Assuming a desktop media query is defined
+                .toggle-button {
+                    display: none; // Ensure button is hidden on desktop
                 }
-                a {
-                    width: 30px;
-                    height: 30px;
-                    background-color: rgba(255,255,255,0.2);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: $font-small;
+
+                .collapsible-content {
+                    display: block; // Always show content on desktop
                 }
             }
-        }
-    }
 
-    .footer-bottom {
-        text-align: center;
-        padding-top: $spacing-sm;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        p {
-            font-size: $font-small;
-            color: rgba(255,255,255,0.7);
+            @include mobile { // Assuming a mobile media query is defined
+                .toggle-button {
+                    display: inline; // Show button on mobile
+                }
+
+                .collapsible-content {
+                    display: none; // Hide by default on mobile
+                    text-align: left; // Align text to the left on mobile
+                    padding-left: $spacing-sm; // Optional: add padding for better alignment
+                }
+
+                &.active .collapsible-content {
+                    display: block; // Show when active on mobile
+                }
+            }
         }
     }
 }
