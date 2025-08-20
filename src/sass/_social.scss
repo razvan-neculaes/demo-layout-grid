@@ -1,0 +1,49 @@
+// _newsletter.scss
+
+@use './variables' as *; // Assuming your variables are defined here
+@use './mixins' as *;   // Assuming your mixins (like @include desktop) are defined here
+@use 'sass:color';
+
+.social-icons {
+    // Mobile-First Styles (these are the defaults)
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    .social-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-left: $spacing-xxl;
+
+        .icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $spacing-sm;
+        }
+    }
+
+    .country {
+        margin-right: $spacing-xxl;
+    }
+
+    // Desktop Styles (applied only on screens larger than mobile)
+    @include desktop {
+        flex-direction: row; // Changes to a row layout
+        justify-content: space-between;
+        align-items: center;
+        gap: 0; // Reset the gap for this container
+
+        .social-header {
+            flex-direction: row;
+            align-items: center;
+            gap: 15px; // Adds space between the header and icons on desktop
+
+            .icons {
+                flex-wrap: nowrap; // Icons stay on one line on desktop
+            }
+        }
+    }
+}
