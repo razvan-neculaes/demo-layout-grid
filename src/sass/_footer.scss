@@ -5,7 +5,6 @@
     background-color: white;
     color: $primary-color; // Ensure $primary-color is black or set to #000000
     padding: $spacing-sm 0;
-    border-top: 1px solid #eee; // Thin horizontal line at the top
 
     .footer-columns {
         display: grid;
@@ -17,6 +16,7 @@
             grid-template-columns: repeat(4, 1fr); // Four columns on desktop
             gap: $spacing-xl; // Larger spacing between columns on desktop
             text-align: left; // Left-aligned text on desktop
+            padding-left: $spacing-xl;
         }
 
         .footer-col {

@@ -32,6 +32,12 @@ ul {
     list-style: none;
 }
 
+hr {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
 // Global container for consistent width
 .container {
     max-width: 1200px;
