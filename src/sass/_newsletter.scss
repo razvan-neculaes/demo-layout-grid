@@ -40,24 +40,6 @@
                 align-items: center; // Center text for mobile
                 margin-bottom: $spacing-md; // Space between banner and form
 
-
-                h2 {
-                    font-family: $font-family-heading; // Use a font similar to the image
-                    font-size: 24px; // Adjust font size as per image
-                    margin-bottom: $spacing-xs;
-                    color: #2e2c2b; // Darker text color based on image
-                    text-align: left; // Center heading for mobile
-                    text-transform: uppercase; // Heading is uppercase in image
-                    font-weight: bold; // Heading is bold
-                    line-height: 1.2;
-                }
-
-                .font-title {
-                    font-family: $font-family-heading;
-                    font-size: 2rem;
-                    font-weight: 400;
-                }
-
                 p {
                     font-family: $font-family-base; // Use a font similar to the image
                     font-size: 14px; // Adjust font size as per image

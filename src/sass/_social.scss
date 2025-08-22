@@ -5,45 +5,65 @@
 @use 'sass:color';
 
 .social-icons {
-    // Mobile-First Styles (these are the defaults)
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+    padding: 0 10px;
+    margin-bottom: $spacing-xxl;
+
+    hr {
+        width: 100%;
+        border: none;
+        border-top: 1px solid #ccc;
+    }
 
     .social-header {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
-        margin-left: $spacing-xxl;
+
+        h2 {
+            margin: 0;
+        }
 
         .icons {
             display: flex;
             flex-wrap: wrap;
-            gap: $spacing-sm;
+            gap: 10px;
         }
     }
 
     .country {
-        margin-right: $spacing-xxl;
+        font-family: $font-family-heading;
+        font-size: 16px;
     }
 
-    // Desktop Styles (applied only on screens larger than mobile)
     @include desktop {
-        flex-direction: row; // Changes to a row layout
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 0; // Reset the gap for this container
+        gap: 0;
+        padding: 0 20px;
 
         .social-header {
             flex-direction: row;
             align-items: center;
-            gap: 15px; // Adds space between the header and icons on desktop
+            gap: 15px;
 
             .icons {
-                flex-wrap: nowrap; // Icons stay on one line on desktop
+                margin-left: 10px;
+                flex-wrap: nowrap;
             }
+        }
+
+        hr {
+            display: none;
+        }
+
+        .country {
+            margin-right: 20px;
         }
     }
 }
