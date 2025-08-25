@@ -1,0 +1,75 @@
+// _mixins.scss
+
+@use './variables' as *; // <-- ADD THIS LINE!
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+header {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+main {
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    height: 100vh;
+}
+
+.top-banner {
+    background-color: #f8b400;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-navigation {
+    background-color: #f85f73;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero-banner {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+
+.top-categories {
+    background-color: #e9ecef;
+    padding: 20px;
+    text-align: center;
+}
+
+.promo-banner {
+    background-color: #dee2e6;
+    padding: 20px;
+    text-align: center;
+}
+
+.features {
+    background-color: #ced4da;
+    padding: 20px;
+    text-align: center;
+}
+
+.newsletter {
+    background-color: #adb5bd;
+    padding: 20px;
+    text-align: center;
+}
+
+.sitemap {
+    background-color: #6c757d;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
